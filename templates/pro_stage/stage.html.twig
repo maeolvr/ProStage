@@ -2,16 +2,11 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Stage {id}{% endblock %}</title>
+        <title>{% block title %}Stage {{idStage}}{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-        <h1>Bienvenue sur le stage</h1>
-        <ul>
-            <li>Informatique</li>
-            <li>GEA</li>
-            <li>TC</li>
-        </ul>
+        <h1>Bienvenue sur le stage {{idStage}}</h1>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
