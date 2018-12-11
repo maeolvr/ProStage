@@ -1,21 +1,9 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="css/bootstrap.min.cass">
+{% extends 'base.html.twig' %}
 
-        <title>{% block title %}Liste des entreprises{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        <h1>Liste des entreprises</h1>
-        <link rel="stylesheet" href="monCss.css">
+{% block body %}
 
-    <title>Bienvenue sur ProStage</title>
-  </head>
-
-  <body>
-    <div class="container">
+  <h1>Listes des entreprises </h1>
+ <div class="container">
       <div class="row">
         <div class="col-1">
           12 colonnes
@@ -24,13 +12,12 @@
 
       <div class="row">
         <div class="col-3 offset-2">
-          A
+          entreprisesA
         </div>
         <div class="col-6">
-          B
+          entreprisesB
         </div>
     </div>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+{% endblock %}
+{% block javascripts %}{% endblock %}
+  
