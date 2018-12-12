@@ -36,6 +36,11 @@ class Entreprise
      */
     private $Site;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Stage", mappedBy="entreprises")
+     */
+    public $idStage;
+
     public function getId(): ?int
     {
         return $this->id;

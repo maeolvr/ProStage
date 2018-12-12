@@ -21,6 +21,11 @@ class Formation
      */
     private $Libelle;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Stage", mappedBy="formations")
+     */
+    private $idStage;
+
     public function getId(): ?int
     {
         return $this->id;

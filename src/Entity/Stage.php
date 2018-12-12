@@ -41,6 +41,17 @@ class Stage
      */
     private $NomDuContact;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Entreprise", inversedBy="stages")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $IdEntreprises;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Formation", inversedBy="stages")
+     */
+    private $idFormations;
+    
     public function getId(): ?int
     {
         return $this->id;
