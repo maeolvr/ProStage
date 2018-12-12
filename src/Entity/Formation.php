@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -22,9 +24,14 @@ class Formation
     private $Libelle;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Stage", mappedBy="formations")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Stage", inversedBy="idFormation")
      */
     private $idStage;
+
+    public function __construct()
+    {
+        $this->idStage = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -39,6 +46,32 @@ class Formation
     public function setLibelle(?string $Libelle): self
     {
         $this->Libelle = $Libelle;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Stage[]
+     */
+    public function getIdStage(): Collection
+    {
+        return $this->idStage;
+    }
+
+    public function addIdStage(Stage $idStage): self
+    {
+        if (!$this->idStage->contains($idStage)) {
+            $this->idStage[] = $idStage;
+        }
+
+        return $this;
+    }
+
+    public function removeIdStage(Stage $idStage): self
+    {
+        if ($this->idStage->contains($idStage)) {
+            $this->idStage->removeElement($idStage);
+        }
 
         return $this;
     }

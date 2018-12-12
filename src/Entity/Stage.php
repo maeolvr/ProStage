@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -42,15 +44,20 @@ class Stage
     private $NomDuContact;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Entreprise", inversedBy="stages")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Entreprise", inversedBy="idStage")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $IdEntreprises;
+    private $idEntreprise;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Formation", inversedBy="stages")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Formation", mappedBy="idStage")
      */
-    private $idFormations;
+    private $idFormation;
+
+    public function __construct()
+    {
+        $this->idFormation = new ArrayCollection();
+    }
     
     public function getId(): ?int
     {
@@ -113,6 +120,46 @@ class Stage
     public function setNomDuContact(?string $NomDuContact): self
     {
         $this->NomDuContact = $NomDuContact;
+
+        return $this;
+    }
+
+    public function getIdEntreprise(): ?Entreprise
+    {
+        return $this->idEntreprise;
+    }
+
+    public function setIdEntreprise(?Entreprise $idEntreprise): self
+    {
+        $this->idEntreprise = $idEntreprise;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Formation[]
+     */
+    public function getIdFormation(): Collection
+    {
+        return $this->idFormation;
+    }
+
+    public function addIdFormation(Formation $idFormation): self
+    {
+        if (!$this->idFormation->contains($idFormation)) {
+            $this->idFormation[] = $idFormation;
+            $idFormation->addIdStage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIdFormation(Formation $idFormation): self
+    {
+        if ($this->idFormation->contains($idFormation)) {
+            $this->idFormation->removeElement($idFormation);
+            $idFormation->removeIdStage($this);
+        }
 
         return $this;
     }

@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -37,9 +39,14 @@ class Entreprise
     private $Site;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Stage", mappedBy="entreprises")
+     * @ORM\OneToMany(targetEntity="App\Entity\Stage", mappedBy="idEntreprise")
      */
-    public $idStage;
+    private $idStage;
+
+    public function __construct()
+    {
+        $this->idStage = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -90,6 +97,37 @@ class Entreprise
     public function setSite(?string $Site): self
     {
         $this->Site = $Site;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Stage[]
+     */
+    public function getIdStage(): Collection
+    {
+        return $this->idStage;
+    }
+
+    public function addIdStage(Stage $idStage): self
+    {
+        if (!$this->idStage->contains($idStage)) {
+            $this->idStage[] = $idStage;
+            $idStage->setIdEntreprise($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIdStage(Stage $idStage): self
+    {
+        if ($this->idStage->contains($idStage)) {
+            $this->idStage->removeElement($idStage);
+            // set the owning side to null (unless already changed)
+            if ($idStage->getIdEntreprise() === $this) {
+                $idStage->setIdEntreprise(null);
+            }
+        }
 
         return $this;
     }
