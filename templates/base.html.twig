@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html>
     <header>
-        <link rel="icon" type="image/png" href="logo.png"/>
+        <link href="logo.png" rel="icon" type="image/png"/>
     </header>
     <head>
         <meta charset="UTF-8">
-        <title>
-            {% block title %}ProStage{% endblock %}
-        </title>
-        <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <a class="navbar-brand" href="{{path('pro_stage')}}">ProStage</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarColor01">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{path('entreprises')}}">Entreprises</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{path('formations')}}">Formations</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <div class="container">
-            {% block body %}{% endblock %}
-        </div>
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+            <title>
+                {% block title %}ProStage{% endblock %}
+            </title>
+            <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+                {% block stylesheets %}{% endblock %}
+            </head>
+            <body>
+                <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                    <a class="navbar-brand" href="{{path('pro_stage')}}">ProStage</a>
+                    <button aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarColor01" data-toggle="collapse" type="button">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarColor01">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{path('entreprises')}}">Entreprises</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{path('formations')}}">Formations</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{path('listestage')}}">Stages</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="container">
+                    {% block body %}{% endblock %}
+                </div>
+                {% block javascripts %}{% endblock %}
+            </body>
+        </html>
+    
