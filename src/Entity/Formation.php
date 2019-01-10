@@ -24,7 +24,7 @@ class Formation
     private $Libelle;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Stage", inversedBy="idFormation")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Stage", mappedBy="idFormation")
      */
     private $idStage;
 
