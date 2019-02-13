@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block title %} ProStage - Ajouter Entreprise {% endblock %}
+
+{% block body %}  
+<h1>Ajouter Entreprise</h1>
+
+{{ form_start(vueForm) }}
+
+    {{ form_row(vueForm.nom, {'attr':{'placeholder':"Nom de l\'entreprise"}} )}}
+
+    {{ form_row(vueForm.activite, {'attr':{'placeholder':"Activité de l\'entreprise"}} )}}
+
+    {{ form_row(vueForm.adresse, {'attr':{'placeholder':"Adresse de l\'entreprise"}} )}}
+
+    {{ form_row(vueForm.site, {'attr':{'placeholder':"Site de l\'entreprise"}} )}}
+
+{{ form_end(vueForm) }} 
+
+{% endblock %}

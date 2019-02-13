@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} ProStage - Accueil {% endblock %}
+
+{% block body %}
+<h1> Bienvenue sur ProStage </h1>
+<p> Cette page présentera bientôt l'acceuil de l'application ProStage </p>
+<ul>
+  <li>
+    <a href="{{path('liste_entreprise')}}">Liste des entreprises</a>
+  </li>
+  <li>
+    <a href="{{path('liste_formation')}}">Liste des formations</a>
+  </li>
+  <li>
+    <a href="{{path('liste_stage')}}">Liste des stages</a>
+  </li>
+</ul>
+
+{% endblock %}

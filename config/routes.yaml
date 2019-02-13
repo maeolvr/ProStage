@@ -1,17 +1,26 @@
-pro_stage:
-    path: /accueil
-    controller: App\Controller\ProStageController::index
-entreprises:
+accueil:
+    path: /
+    controller: App\Controller\ProStageController::accueil
+liste_entreprise:
     path: /entreprises
-    controller: App\Controller\ProStageController::entreprises
-formations:
+    controller: App\Controller\ProStageController::listeEntrep
+entreprise:
+    path: /entreprise/{id}
+    controller: App\Controller\ProStageController::entreprise
+liste_formation:
     path: /formations
-    controller: App\Controller\ProStageController::formations
-listestage:
-    path: /listestage
-    controller: App\Controller\ProStageController::listestage
+    controller: App\Controller\ProStageController::listeFormations
+formation:
+    path: /formation/{id}
+    controller: App\Controller\ProStageController::formation
+liste_stage:
+    path: /stages
+    controller: App\Controller\ProStageController::listeStages
 stage:
     path: /stage/{id}
     controller: App\Controller\ProStageController::stage
+createEntreprise:
+    path: /create/entreprise
+    controller: App\Controller\ProStageController::createEntreprise
     
 

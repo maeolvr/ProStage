@@ -1,20 +1,7 @@
 {% extends 'base.html.twig' %}
+
+{% block title %} ProStage - Stages {{idStage}} {% endblock %}
+
 {% block body %}
-    <!DOCTYPE html>
-    <html>
-        <head>
-            <meta charset="UTF-8">
-                <title>
-                    {% block title %}Stage
-                        {{idStage}}
-                    {% endblock %}
-                </title>
-                {% block stylesheets %}{% endblock %}
-            </head>
-            <body>
-                <h1>Cette page affichera le descriptif du stage ayant pour identifiant
-                    {{idStage}}.</h1>
-                {% block javascripts %}{% endblock %}
-            </body>
-        </html>
-    {% endblock %}
+    <h1>Cette page affichera le descriptif du stage ayant pour identifiant {{idStage}}.</h1>
+{% endblock %}
